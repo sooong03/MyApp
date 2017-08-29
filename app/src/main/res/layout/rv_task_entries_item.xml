@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_4dp"
+    android:minHeight="@dimen/size_48dp">
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:shadowColor="@color/myColorGreyPrimaryDark"
+        android:text="@string/app_maker"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textSize="@dimen/typo_headline"
+        android:gravity="right"
+        android:paddingRight="@dimen/_16dp"/>
+
+
+    <ImageView
+        android:id="@+id/IV_memo_item_dot"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/ic_dot"
+        android:tint="@color/memo_icon_tint" />
+
+
+    <ImageView
+        android:id="@+id/IV_memo_item_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/ic_delete"
+        android:tint="@color/myColorDefaultAccent"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvTaskContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@id/IV_memo_item_delete"
+        android:layout_toRightOf="@id/IV_memo_item_dot"
+        android:gravity="center_vertical"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/topic_divider" />
+
+
+</RelativeLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBulletPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/ivAddSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_schedule"/>
+
+
+
+
+    <EditText
+        android:id="@+id/edObjectiveName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="objective name"
+        android:inputType="text"/>
+
+    <ImageView
+        android:id="@+id/ivAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_task_box"/>
+
+    <EditText
+        android:id="@+id/edContentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="content title"
+        android:inputType="text"/>
+
+    <Switch
+        android:id="@+id/swRepeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="repeat"
+        android:checked="true"/>
+
+    <LinearLayout
+        android:id="@+id/layoutRepeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/spiRepeatRule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:listitem="@android:layout/activity_list_item"
+            android:spinnerMode="dropdown">
+        </Spinner>
+        <Spinner
+            android:id="@+id/spiRepeatDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:listitem="@android:layout/activity_list_item"
+            android:spinnerMode="dropdown">
+        </Spinner>
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/swAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="alarm"
+        android:checked="true"/>
+    <LinearLayout
+        android:id="@+id/layoutAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/spiAlarmRule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:listitem="@android:layout/activity_list_item"
+            android:spinnerMode="dropdown">
+        </Spinner>
+        <Spinner
+            android:id="@+id/spiAlarmDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:listitem="@android:layout/activity_list_item"
+            android:spinnerMode="dropdown">
+        </Spinner>
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyAppTheme.Grey" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/myColorGreyPrimary</item>
+        <item name="colorPrimaryDark">@color/myColorGreyPrimaryDark</item>
+        <item name="colorAccent">@color/myColorGreyAccent</item>
+    </style>
+
+
+    <style name="Fab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:src">@drawable/ic_fab_add</item>
+        <item name="android:background">@color/myColorGreyAccent</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginBottom">@dimen/_16dp</item>
+        <item name="android:layout_marginRight">@dimen/_16dp</item>
+    </style>
+
+
+    <style name="weekIndicatorStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/myColorGreyAccent</item>
+    </style>
+
+</resources>

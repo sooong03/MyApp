@@ -1,0 +1,86 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".entries.dashboard.BoardListFragment"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_16dp"
+                android:gravity="right"
+                >
+                <LinearLayout
+                    android:id="@+id/layout_today"
+                    android:layout_width="@dimen/size_56dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/tvDateToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/typo_title"
+                        android:textColor="@color/myColorGreyWhite"/>
+
+                    <TextView
+                        android:id="@+id/tvDateDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calendar_mon"
+                        android:textColor="@color/myColorGreyWhite"
+                        android:textSize="@dimen/typo_headline"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_56dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="fill">
+                    <ImageView
+                        android:id="@+id/ivPrev"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_arrow_prev"
+                        android:scaleType="centerInside"
+                        android:clickable="true"/>
+
+                    <ImageView
+                        android:id="@+id/ivNext"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_arrow_next"
+                        android:scaleType="centerInside"
+                        android:clickable="true"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <fragment
+        android:id="@+id/fragmentEntries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+</android.support.design.widget.CoordinatorLayout>

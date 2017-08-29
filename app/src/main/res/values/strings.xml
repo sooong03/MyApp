@@ -1,0 +1,56 @@
+<resources>
+
+
+    <string name="app_maker">MANIA FACTORY</string>
+
+
+    <string name="app_name">MyApp</string>
+
+    <string name="menu_dashboard">대시보드</string>
+    <string name="menu_cloud">클라우드</string>
+    <string name="menu_inventory">인벤토리</string>
+
+    <!--<string name="menu_navi_dashboard">대시보드</string>-->
+    <!--<string name="menu_navi_share_list">공유목록</string>-->
+    <!--<string name="menu_navi_add_content">미션</string>-->
+    <!--<string name="menu_navi_inventory">인벤토리</string>-->
+    <!--<string name="menu_navi_setting">설정</string>-->
+
+    <string name="element_health">건강</string>
+    <string name="element_finances">재정</string>
+    <string name="element_emotional">감정</string>
+    <string name="element_environment">환경</string>
+    <string name="element_relationships">관계</string>
+    <string name="element_appearance">외면</string>
+    <string name="element_education">교육</string>
+    <string name="element_spirituality">정신</string>
+    <string name="element_business">사업</string>
+
+    <string name="calendar_mon">월</string>
+    <string name="calendar_tue">화</string>
+    <string name="calendar_wen">수</string>
+    <string name="calendar_the">목</string>
+    <string name="calendar_fri">금</string>
+    <string name="calendar_sat">토</string>
+    <string name="calendar_sun">일</string>
+
+
+    <!--Setting-->
+    <string name="set_account">연결 계정</string>
+    <string name="set_password">암호설정</string>
+    <string name="set_data">데이타 관리</string>
+    <string name="set_start_day">시작요일</string>
+    <string name="set_start_day_mon">월요일</string>
+    <string name="set_start_day_sun">일요일</string>
+    <string name="set_start_day_sat">토요일</string>
+    <string name="set_device_calendar">캘린더 동기화</string>
+    <string name="set_auto_save">자동저장 사용</string>
+    <string name="set_weather">날씨</string>
+    <string name="set_diary">일기</string>
+    <string name="set_photo">사진</string>
+    <string name="set_admin_qna">QnA</string>
+    <string name="set_admin">관리자 문의</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
