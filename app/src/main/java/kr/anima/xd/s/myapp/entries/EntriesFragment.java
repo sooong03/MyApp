@@ -10,13 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kr.anima.xd.s.myapp.R;
-import kr.anima.xd.s.myapp.entries.dashboard.DashboardEntriesAdapter;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EntriesFragment extends MyFragment {
+public class EntriesFragment extends Fragment {
 
     private Context mContext;
     RecyclerView rvDashboardEntry;

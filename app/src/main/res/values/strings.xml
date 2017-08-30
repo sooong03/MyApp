@@ -51,6 +51,23 @@
     <string name="set_admin_qna">QnA</string>
     <string name="set_admin">관리자 문의</string>
 
+    <string name="noti_no_entries">새로운 내용을 등록해보세요\n\n:D</string>
+
+
+    <string name="purpose_title">미션제목</string>
+    <string name="purpose_description">미션설명</string>
+    <string name="purpose_dtStart">시작일</string>
+    <string name="purpose_dtEnd">종료일</string>
+    <string name="purpose_allday">하루종일</string>
+    <string name="purpose_hasAlarm">알람</string>
+    <string name="purpose_rrule">반복</string>
+    <string name="purpose_rdate">반복날짜</string>
+    <string name="purpose_rank">중요도</string>
+
+
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

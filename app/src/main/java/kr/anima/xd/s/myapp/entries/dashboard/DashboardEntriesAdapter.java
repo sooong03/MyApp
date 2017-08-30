@@ -1,9 +1,9 @@
 package kr.anima.xd.s.myapp.entries.dashboard;
 
+import android.content.Context;
+import android.database.Cursor;
 import android.icu.text.DateFormat;
-import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
-import kr.anima.xd.s.myapp.EntryItemDialogFragment;
 import kr.anima.xd.s.myapp.R;
+import kr.anima.xd.s.myapp.db.DBManager;
+import kr.anima.xd.s.myapp.db.DBStructure;
 import kr.anima.xd.s.myapp.entries.EntriesEntry;
-import kr.anima.xd.s.myapp.entries.EntriesFragment;
 import kr.anima.xd.s.myapp.entries.ItemInfoHelper;
 import kr.anima.xd.s.myapp.shared.EditMode;
 
@@ -29,37 +29,54 @@ import kr.anima.xd.s.myapp.shared.EditMode;
 
 public class DashboardEntriesAdapter extends RecyclerView.Adapter implements EditMode{
 
+    // 대시보드에 보여줄 내용 로드
+
+    private Context mContext;
+    private Date selectDate;
+
     private ArrayList<EntriesEntry> entriesList;
     private DateFormat dateFormat;
-    private EntriesFragment mFragment;
-    private String[] daysSimpleName;
 
+    private DBManager dbManager;
     private boolean isEditMode=false;
+
+    private final int NO_ITEM=0;
 
     private ScheduleViewHolder scheduleViewHolder;
     private TaskViewHolder taskViewHolder;
 
-    public DashboardEntriesAdapter() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            dateFormat=new SimpleDateFormat("HH:mm");
-        }
+    public DashboardEntriesAdapter(Context mContext) {
+        this.mContext = mContext;
     }
 
-    public DashboardEntriesAdapter(List<EntriesEntry> entriesList, EntriesFragment mFragment) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            dateFormat=new SimpleDateFormat("HH:mm");
-        }
-        this.entriesList = (ArrayList<EntriesEntry>) entriesList;
-        this.mFragment = mFragment;
-        this.daysSimpleName=mFragment.getResources().getStringArray(R.array.days_simple_name);
-
+    public DashboardEntriesAdapter(Context mContext, Date selectDate) {
+        this.mContext = mContext;
+        this.selectDate = selectDate;
+        loadDataByDate(selectDate); // 날짜에 맞는 데이타 로드
+        entriesList.add(new EntriesEntry(0, selectDate, "test", "test", 0, false, EntriesEntry.TYPE_SCHEDULE));
     }
+
+    //    public DashboardEntriesAdapter() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            dateFormat=new SimpleDateFormat("HH:mm");
+//        }
+//    }
+//
+//    public DashboardEntriesAdapter(List<EntriesEntry> entriesList, EntriesFragment mFragment) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            dateFormat=new SimpleDateFormat("HH:mm");
+//        }
+//        this.entriesList = (ArrayList<EntriesEntry>) entriesList;
+//        this.mFragment = mFragment;
+//        this.daysSimpleName=mFragment.getResources().getStringArray(R.array.days_simple_name);
+//
+//    }
 
     @Override
     public int getItemViewType(int position) {
         // TODO :: 스케쥴과 태스크 구분
         switch (entriesList.get(position).getType()){
-            default: return EntriesEntry.TYPE_SCHEDULE;
+            default: return NO_ITEM;
             case EntriesEntry.TYPE_SCHEDULE:
                 return EntriesEntry.TYPE_SCHEDULE;
             case EntriesEntry.TYPE_TASK:
@@ -73,6 +90,9 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
         View view=null;
 
         switch (viewType){
+            default:
+                view=LayoutInflater.from(parent.getContext()).inflate(R.layout.view_no_entries, parent, false);
+                return null;
             case EntriesEntry.TYPE_SCHEDULE:
                 view=LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_schedule_entries_item, parent, false);
                 scheduleViewHolder=new ScheduleViewHolder(view);
@@ -83,7 +103,6 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
                 return taskViewHolder;
         }
 
-        return null;
     }
 
     @Override
@@ -151,6 +170,38 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
     }
 
 
+    private void loadDataByDate(Date date){
+        dbManager=new DBManager(mContext);
+        dbManager.openDB();
+        Cursor cursor=null;
+
+        // 스케쥴
+        cursor=dbManager.selectScheduleByDate(date.getTime());
+        while (cursor!=null){
+            int id=cursor.getInt(cursor.getColumnIndex(DBStructure.ScheduleEntry._ID));
+            String title=cursor.getString(cursor.getColumnIndex(DBStructure.ScheduleEntry.COLUMN_TITLE));
+            int[] elements=new int[9];
+            for(int j=0; j<elements.length; j++){
+                int elementId=cursor.getInt(cursor.getColumnIndex(DBStructure.ScheduleEntry.COLUMN_ELEMENT_APPEARANCE+j));
+                elements[j]=elementId;
+            }
+            entriesList.add(new EntriesEntry(id, date.getTime(), title, null, elements, EntriesEntry.TYPE_SCHEDULE));
+            cursor.moveToNext();
+            cursor.close();
+        }
+
+//        cursor=dbManager.selectTaskByDate(date.getTime());
+//        while (cursor!=null){
+//            String str=cursor.getString(cursor.getColumnIndex(DBStructure.TaskEntry.COLUMN_TITLE));
+//
+//
+//        }
+//        String title=cursor.getString(cursor.getColumnIndex(DBStructure.ScheduleEntry.COLUMN_TITLE));
+
+//        cursor.close();
+        dbManager.closeDB();
+
+    }
 
     @Override
     public boolean isEditMode() {

@@ -30,8 +30,8 @@ public class InitTask extends AsyncTask<Long, Void, Boolean> {
         try {
             DBManager dbManager=new DBManager(mContext);
             dbManager.openDB();
-            loadSampleData(dbManager);
-            updateData(dbManager);
+//            loadSampleData(dbManager);
+//            updateData(dbManager);
             dbManager.closeDB();
 //            saveCurrentVersionCode();
         } catch (Exception e){}
@@ -42,7 +42,7 @@ public class InitTask extends AsyncTask<Long, Void, Boolean> {
     @Override
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
-//        callBack.onInitCompiled();
+        callBack.onInitCompiled(true);
     }
 
     private void loadSampleData(DBManager dbManager){

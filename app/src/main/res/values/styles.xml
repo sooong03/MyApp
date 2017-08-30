@@ -37,4 +37,33 @@
         <item name="android:textColor">@color/myColorGreyAccent</item>
     </style>
 
+    <style name="TextView_Purpose">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_36dp</item>
+        <item name="android:textColor">@color/myColorGreyText</item>
+        <item name="android:textSize">@dimen/typo_headline_sub</item>
+        <item name="android:gravity">right|center_vertical</item>
+    </style>
+
+    <style name="EditText_Purpose">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_36dp</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textSize">@dimen/typo_body</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+    <style name="TextView_Btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/size_36dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/typo_btn</item>
+        <item name="android:textColor">@color/myColorGreyAccent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/_8dp</item>
+        <item name="android:layout_margin">@dimen/_4dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>

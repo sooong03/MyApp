@@ -24,16 +24,8 @@ import kr.anima.xd.s.myapp.main.MainActivity;
  */
 public class DashboardFragment extends Fragment {
 
-    // 리스트에 보여줄 내용이 있는지 확인
-    // 있으면 로드
 
     private Context mContext;
-    private MainActivity mainActivity;
-
-    private long topicId;
-    private boolean hasEntries;
-
-    private List<EntriesEntry> entryList=new ArrayList<>();
 
     ViewPager pager;
 
@@ -43,7 +35,6 @@ public class DashboardFragment extends Fragment {
 
     public DashboardFragment(Context mContext) {
         this.mContext = mContext;
-        mainActivity= (MainActivity) getActivity();
     }
 
     @Override
@@ -55,17 +46,6 @@ public class DashboardFragment extends Fragment {
         pager.setAdapter(new DashboardPagerAdapter(getActivity().getSupportFragmentManager(), mContext));
 
         return view;
-    }
-
-    public void loadEntries(){
-
-        // 기기의 db에서 모든 entries 가져오기
-
-        entryList.clear();
-        DBManager dbManager=new DBManager(mContext);
-        dbManager.openDB();
-
-        Cursor entriesCursor;
     }
 
 }

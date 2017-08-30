@@ -6,70 +6,122 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="kr.anima.xd.s.myapp.main.PurposeActivity"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/edPurpose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="purpose title"
-        android:inputType="text"
-        android:ems="20"
-        android:lines="1"/>
+    android:orientation="vertical"
+    android:padding="@dimen/_16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:id="@+id/tvStartDate"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2017년 10월 22일"
-            android:textSize="@dimen/typo_body"
-            android:textColor="@color/myColorGreyText"/>
+            android:orientation="vertical"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_16dp">
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text="@string/purpose_title"/>
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text="@string/purpose_description"/>
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text=""/>
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text="@string/purpose_dtStart"/>
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text="@string/purpose_dtEnd"/>
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text="@string/purpose_rrule"/>
+            <TextView
+                style="@style/TextView_Purpose"
+                android:text="@string/purpose_rdate"/>
 
-        <TextView
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="부터"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_16dp">
 
+            <EditText
+                android:id="@+id/etTitle"
+                style="@style/EditText_Purpose"
+                android:hint="@string/purpose_title"/>
+
+            <EditText
+                android:id="@+id/etDescription"
+                style="@style/EditText_Purpose"
+                android:hint="@string/purpose_description"/>
+
+            <CheckBox
+                android:id="@+id/cbAllday"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_36dp"
+                android:text="@string/purpose_allday"
+                android:gravity="right|center_vertical"
+                android:button="@null"
+                android:drawableRight="@drawable/ic_sel_checkbox"
+                android:drawablePadding="@dimen/_8dp"/>
+
+            <DatePicker
+                android:id="@+id/dpStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_36dp"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false">
+            </DatePicker>
+
+            <DatePicker
+                android:id="@+id/dpEnd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_36dp"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false">
+            </DatePicker>
+
+            <Spinner
+                android:id="@+id/spiRrule"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_36dp"
+                android:spinnerMode="dropdown">
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/spiRdate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_36dp"
+                android:spinnerMode="dropdown">
+            </Spinner>
+        </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/tvEndDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2017년 10월 21일"
-            android:textSize="@dimen/typo_body"
-            android:textColor="@color/myColorGreyText"/>
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_gravity="bottom"
+        >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="까지"/>
+            android:id="@+id/tvCancel"
+            style="@style/TextView_Btn"
+            android:text="@string/btn_cancel"/>
 
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/TextView_Btn"
+            android:text="@string/btn_ok"/>
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/ivAddObjectiveList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_add_objective_list"
-        android:clickable="true"/>
-
-    <EditText
-        android:id="@+id/tvObjective"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="objective name"
-        android:inputType="text"/>
-
-
-
 
 
 </LinearLayout>

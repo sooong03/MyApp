@@ -19,12 +19,30 @@ public class EntriesEntry implements Comparable<CalendarDay> {
     private String title;
     private String summary;
     private int elementId;  //TODO 배열로 바꿔야함
+    private int[] elements=new int[9];
     private boolean hasAttachment;
     private int type;
+
+    private int _id;
+    private long date;
+    private String title1;
+    private String sum;
+    private int[] elementsId;
+    private int contentType;
+
 
     public static final int TYPE_SCHEDULE=0;
     public static final int TYPE_TASK=1;
 
+
+    public EntriesEntry(int _id, long date, String title1, String sum, int[] elementsId, int contentType) {
+        this._id = _id;
+        this.date = date;
+        this.title1 = title1;
+        this.sum = sum;
+        this.elementsId = elementsId;
+        this.contentType = contentType;
+    }
 
     public EntriesEntry(int id, Date createDate, String title, String summary, int elementId, boolean hasAttachment, int type) {
         this.id = id;

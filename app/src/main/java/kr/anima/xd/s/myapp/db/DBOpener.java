@@ -9,9 +9,8 @@ import static kr.anima.xd.s.myapp.db.DBStructure.ObjectiveEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.PurposeEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.ScheduleEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.TaskEntry;
-import static kr.anima.xd.s.myapp.db.DBStructure.TopicEntry;
-import static kr.anima.xd.s.myapp.db.DBStructure.TopicTypeEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.TrackerEntry;
+import static kr.anima.xd.s.myapp.db.DBStructure.DateEntry;
 
 /**
  * Created by PC on 2017-08-26.
@@ -35,36 +34,30 @@ public class DBOpener extends SQLiteOpenHelper {
     private static final String FOREIGN = " FOREIGN KEY ";
     private static final String REFERENCES = " REFERENCES ";
 
-    private static final String SQL_CREATE_TOPIC_ENTRIES =
-            "CREATE TABLE " + TopicEntry.TABLE_NAME + " (" +
-                    TopicEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
-                    TopicEntry.COLUMN_TYPE + INTEGER_TYPE +
-                    " )";
-
-    private static final String SQL_CREATE_TOPIC_TYPE_ENTRIES =
-            "CREATE TABLE " + TopicTypeEntry.TABLE_NAME + " (" +
-                    TopicTypeEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
-                    TopicTypeEntry.COLUMN_NAME + INTEGER_TYPE +
-                    " )";
+//    private static final String SQL_CREATE_TOPIC_ENTRIES =
+//            "CREATE TABLE " + TopicEntry.TABLE_NAME + " (" +
+//                    TopicEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
+//                    TopicEntry.COLUMN_TYPE + INTEGER_TYPE +
+//                    " )";
+//
+//    private static final String SQL_CREATE_TOPIC_TYPE_ENTRIES =
+//            "CREATE TABLE " + TopicTypeEntry.TABLE_NAME + " (" +
+//                    TopicTypeEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
+//                    TopicTypeEntry.COLUMN_NAME + INTEGER_TYPE +
+//                    " )";
 
     private static final String SQL_CREATE_PURPOSE_ENTRIES =
             "CREATE TABLE " + PurposeEntry.TABLE_NAME + " (" +
                     PurposeEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
                     PurposeEntry.COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +
-                    PurposeEntry.COLUMN_STATUS + INTEGER_TYPE + COMMA_SEP +
-                    PurposeEntry.COLUMN_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
-                    PurposeEntry.COLUMN_FINAL_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
-                    PurposeEntry.COLUMN_REF_ELEMENTS__ID + INTEGER_TYPE +
+                    PurposeEntry.COLUMN_TIMESTAMP + INTEGER_TYPE +
                     " )";
 
     private static final String SQL_CREATE_OBJECTIVE_ENTRIES =
             "CREATE TABLE " + ObjectiveEntry.TABLE_NAME + " (" +
                     ObjectiveEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
                     ObjectiveEntry.COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +
-                    ObjectiveEntry.COLUMN_STATUS + INTEGER_TYPE + COMMA_SEP +
                     ObjectiveEntry.COLUMN_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
-                    ObjectiveEntry.COLUMN_FINAL_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
-                    ObjectiveEntry.COLUMN_REF_ELEMENTS__ID + INTEGER_TYPE + COMMA_SEP +
                     ObjectiveEntry.COLUMN_REF_PURPOSE__ID + INTEGER_TYPE +
                     " )";
 
@@ -79,8 +72,17 @@ public class DBOpener extends SQLiteOpenHelper {
                     ScheduleEntry.COLUMN_REPEAT_TYPE + INTEGER_TYPE + COMMA_SEP +
                     ScheduleEntry.COLUMN_REPEAT_RULE + INTEGER_TYPE + COMMA_SEP +
                     ScheduleEntry.COLUMN_REPEAT_DATE + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_TRACKER_TYPE + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_APPEARANCE + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_BUSINESS + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_EDUCATION + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_EMOTION + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_ENVIRONMENT + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_FINANCES + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_HEALTH + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_RELATIONSHIP + INTEGER_TYPE + COMMA_SEP +
+                    ScheduleEntry.COLUMN_ELEMENT_SPIRITUALITY + INTEGER_TYPE + COMMA_SEP +
                     ScheduleEntry.COLUMN_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
-                    ScheduleEntry.COLUMN_FINAL_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
                     ScheduleEntry.COLUMN_REF_OBJECTIVE__ID + INTEGER_TYPE +
                     " )";
 
@@ -92,27 +94,74 @@ public class DBOpener extends SQLiteOpenHelper {
                     TaskEntry.COLUMN_REPEAT_TYPE + INTEGER_TYPE + COMMA_SEP +
                     TaskEntry.COLUMN_REPEAT_RULE + INTEGER_TYPE + COMMA_SEP +
                     TaskEntry.COLUMN_REPEAT_DATE + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_TRACKER_TYPE + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_APPEARANCE + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_BUSINESS + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_EDUCATION + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_EMOTION + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_ENVIRONMENT + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_FINANCES + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_HEALTH + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_RELATIONSHIP + INTEGER_TYPE + COMMA_SEP +
+                    TaskEntry.COLUMN_ELEMENT_SPIRITUALITY + INTEGER_TYPE + COMMA_SEP +
                     TaskEntry.COLUMN_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
-                    TaskEntry.COLUMN_FINAL_TIMESTAMP + INTEGER_TYPE + COMMA_SEP +
                     TaskEntry.COLUMN_REF_OBJECTIVE__ID + INTEGER_TYPE +
                     " )";
 
     private static final String SQL_CREATE_TRACKER_ENTRIES =
             "CREATE TABLE " + TrackerEntry.TABLE_NAME + " (" +
                     TrackerEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
-                    TrackerEntry.COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +
-                    TrackerEntry.COLUMN_STATUS + INTEGER_TYPE + COMMA_SEP +
-                    TrackerEntry.COLUMN_REPEAT_TYPE + INTEGER_TYPE + COMMA_SEP +
-                    TrackerEntry.COLUMN_REPEAT_RULE + INTEGER_TYPE + COMMA_SEP +
-                    TrackerEntry.COLUMN_REPEAT_DATE + INTEGER_TYPE + COMMA_SEP +
-                    TrackerEntry.COLUMN_REF_OBJECTIVE__ID + INTEGER_TYPE + COMMA_SEP +
-                    TrackerEntry.COLUMN_REF_PURPOSE__ID + INTEGER_TYPE +
+                    TrackerEntry.COLUMN_DATE + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_TITLE_1 + TEXT_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_TITLE_2 + TEXT_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_TITLE_3 + TEXT_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_TITLE_4 + TEXT_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_TITLE_5 + TEXT_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_STATUS_1 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_STATUS_2 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_STATUS_3 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_STATUS_4 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_STATUS_5 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_TYPE_1 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_TYPE_2 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_TYPE_3 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_TYPE_4 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_TYPE_5 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_RULE_1 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_RULE_2 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_RULE_3 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_RULE_4 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_RULE_5 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_DATE_1 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_DATE_2 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_DATE_3 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_DATE_4 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REPEAT_DATE_5 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_OBJECTIVE__ID_1 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_OBJECTIVE__ID_2 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_OBJECTIVE__ID_3 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_OBJECTIVE__ID_4 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_OBJECTIVE__ID_5 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_PURPOSE__ID_1 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_PURPOSE__ID_2 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_PURPOSE__ID_3 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_PURPOSE__ID_4 + INTEGER_TYPE + COMMA_SEP +
+                    TrackerEntry.COLUMN_REF_PURPOSE__ID_5 + INTEGER_TYPE +
                     " )";
 
     private static final String SQL_CREATE_ELEMENTS_ENTRIES =
             "CREATE TABLE " + ElementsEntry.TABLE_NAME + " (" +
                     ElementsEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
                     ElementsEntry.COLUMN_TITLE + TEXT_TYPE +
+                    " )";
+
+    private static final String SQL_CREATE_DATE_ENTRIES =
+            "CREATE TABLE " + DateEntry.TABLE_NAME + " (" +
+                    DateEntry._ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT," +
+                    DateEntry.COLUMN_TITLE + INTEGER_TYPE + COMMA_SEP +
+                    DateEntry.COLUMN_CONTENT_TYPE + INTEGER_TYPE + COMMA_SEP +
+                    DateEntry.COLUMN_REF_OBJECTIVE__ID + INTEGER_TYPE + COMMA_SEP +
+                    DateEntry.COLUMN_REF_PURPOSE_ID + INTEGER_TYPE +
                     " )";
 
 
@@ -363,8 +412,8 @@ public class DBOpener extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
 
-        db.execSQL(SQL_CREATE_TOPIC_ENTRIES);
-        db.execSQL(SQL_CREATE_TOPIC_TYPE_ENTRIES);
+//        db.execSQL(SQL_CREATE_TOPIC_ENTRIES);
+//        db.execSQL(SQL_CREATE_TOPIC_TYPE_ENTRIES);
 
 //        db.execSQL(SQL_CREATE_USER_ENTRIES);
 
@@ -381,6 +430,8 @@ public class DBOpener extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_SCHEDULE_ENTRIES);
         db.execSQL(SQL_CREATE_TASK_ENTRIES);
         db.execSQL(SQL_CREATE_TRACKER_ENTRIES);
+
+        db.execSQL(SQL_CREATE_DATE_ENTRIES);
 
     }
 

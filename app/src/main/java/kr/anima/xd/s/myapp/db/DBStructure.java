@@ -39,20 +39,20 @@ public class DBStructure {
     public static abstract class PurposeEntry implements BaseColumns{
         public static final String TABLE_NAME="purpose_entry";
         public static final String COLUMN_TITLE="purpose_title";
-        public static final String COLUMN_STATUS="purpose_status";
+//        public static final String COLUMN_STATUS="purpose_status";
         public static final String COLUMN_TIMESTAMP="purpose_timestamp";
-        public static final String COLUMN_FINAL_TIMESTAMP="purpose_final_timestamp";
-        public static final String COLUMN_REF_ELEMENTS__ID="purpose_ref_elements_id";
+//        public static final String COLUMN_FINAL_TIMESTAMP="purpose_final_timestamp";
+//        public static final String COLUMN_REF_ELEMENTS__ID="purpose_ref_elements_id";
     }
 
     // objective entry : id, title, status, timeStamp, finalTimeStamp, ref_element_id, ref_purpose_id
     public static abstract class ObjectiveEntry implements BaseColumns{
         public static final String TABLE_NAME="objective_entry";
         public static final String COLUMN_TITLE="objective_title";
-        public static final String COLUMN_STATUS="objective_status";
+//        public static final String COLUMN_STATUS="objective_status";
         public static final String COLUMN_TIMESTAMP="objective_timestamp";
-        public static final String COLUMN_FINAL_TIMESTAMP="objective_final_timestamp";
-        public static final String COLUMN_REF_ELEMENTS__ID="objective_ref_elements_id";
+//        public static final String COLUMN_FINAL_TIMESTAMP="objective_final_timestamp";
+//        public static final String COLUMN_REF_ELEMENTS__ID="objective_ref_elements_id";
         public static final String COLUMN_REF_PURPOSE__ID="objective_ref_purpose_id";
     }
 
@@ -66,8 +66,18 @@ public class DBStructure {
         public static final String COLUMN_REPEAT_TYPE="schedule_repeat_type";
         public static final String COLUMN_REPEAT_RULE="schedule_repeat_rule";
         public static final String COLUMN_REPEAT_DATE="schedule_repeat_date";
+        public static final String COLUMN_TRACKER_TYPE="schedule_tracker_type";
+        public static final String COLUMN_ELEMENT_APPEARANCE="schedule_element_appearance"; // 외모
+        public static final String COLUMN_ELEMENT_BUSINESS="schedule_element_business"; // 사업
+        public static final String COLUMN_ELEMENT_EDUCATION="schedule_element_education"; // 교육
+        public static final String COLUMN_ELEMENT_EMOTION="schedule_element_emotion"; // 감정
+        public static final String COLUMN_ELEMENT_ENVIRONMENT="schedule_element_environment"; // 환경
+        public static final String COLUMN_ELEMENT_FINANCES="schedule_element_finances"; // 재정
+        public static final String COLUMN_ELEMENT_HEALTH="schedule_element_health"; // 건강
+        public static final String COLUMN_ELEMENT_RELATIONSHIP="schedule_element_relationship"; // 관계
+        public static final String COLUMN_ELEMENT_SPIRITUALITY="schedule_element_spirituality"; // 정신
         public static final String COLUMN_TIMESTAMP="schedule_timestamp";
-        public static final String COLUMN_FINAL_TIMESTAMP="schedule_final_timestamp";
+//        public static final String COLUMN_FINAL_TIMESTAMP="schedule_final_timestamp";
         public static final String COLUMN_REF_OBJECTIVE__ID="schedule_ref_objective_id";
     }
 
@@ -76,25 +86,64 @@ public class DBStructure {
         public static final String TABLE_NAME="task_entry";
         public static final String COLUMN_TITLE="task_title";
         public static final String COLUMN_STATUS="task_status";
-        public static final String COLUMN_REPEAT_TYPE="schedule_repeat_type";
-        public static final String COLUMN_REPEAT_RULE="schedule_repeat_rule";
-        public static final String COLUMN_REPEAT_DATE="schedule_repeat_date";
-        public static final String COLUMN_TIMESTAMP="schedule_timestamp";
-        public static final String COLUMN_FINAL_TIMESTAMP="schedule_final_timestamp";
-        public static final String COLUMN_REF_OBJECTIVE__ID="schedule_ref_objective_id";
+        public static final String COLUMN_REPEAT_TYPE="task_repeat_type";
+        public static final String COLUMN_REPEAT_RULE="task_repeat_rule";
+        public static final String COLUMN_REPEAT_DATE="task_repeat_date";
+        public static final String COLUMN_TRACKER_TYPE="task_tracker_type";
+        public static final String COLUMN_ELEMENT_APPEARANCE="task_element_appearance"; // 외모
+        public static final String COLUMN_ELEMENT_BUSINESS="task_element_business"; // 사업
+        public static final String COLUMN_ELEMENT_EDUCATION="task_element_education"; // 교육
+        public static final String COLUMN_ELEMENT_EMOTION="task_element_emotion"; // 감정
+        public static final String COLUMN_ELEMENT_ENVIRONMENT="task_element_environment"; // 환경
+        public static final String COLUMN_ELEMENT_FINANCES="task_element_finances"; // 재정
+        public static final String COLUMN_ELEMENT_HEALTH="task_element_health"; // 건강
+        public static final String COLUMN_ELEMENT_RELATIONSHIP="task_element_relationship"; // 관계
+        public static final String COLUMN_ELEMENT_SPIRITUALITY="task_element_spirituality"; // 정신
+        public static final String COLUMN_TIMESTAMP="task_timestamp";
+//        public static final String COLUMN_FINAL_TIMESTAMP="task_final_timestamp";
+        public static final String COLUMN_REF_OBJECTIVE__ID="task_ref_objective_id";
     }
 
 
     // tracker entry : id, title, status, repeatRule, repeatData, (tracker type ??) ref_purpose_id
     public static abstract class TrackerEntry implements BaseColumns{
         public static final String TABLE_NAME="tracker_entry";
-        public static final String COLUMN_TITLE="tracker_title";
-        public static final String COLUMN_STATUS="tracker_status";
-        public static final String COLUMN_REPEAT_TYPE="tracker_repeat_type";
-        public static final String COLUMN_REPEAT_RULE="tracker_repeat_rule";
-        public static final String COLUMN_REPEAT_DATE="tracker_repeat_date";
-        public static final String COLUMN_REF_OBJECTIVE__ID="tracker_ref_objective_id";
-        public static final String COLUMN_REF_PURPOSE__ID="tracker_ref_purpose_id";
+        public static final String COLUMN_DATE="tracker_date";
+        public static final String COLUMN_TITLE_1="tracker_title_1";
+        public static final String COLUMN_TITLE_2="tracker_title_2";
+        public static final String COLUMN_TITLE_3="tracker_title_3";
+        public static final String COLUMN_TITLE_4="tracker_title_4";
+        public static final String COLUMN_TITLE_5="tracker_title_5";
+        public static final String COLUMN_STATUS_1="tracker_status_1";
+        public static final String COLUMN_STATUS_2="tracker_status_2";
+        public static final String COLUMN_STATUS_3="tracker_status_3";
+        public static final String COLUMN_STATUS_4="tracker_status_4";
+        public static final String COLUMN_STATUS_5="tracker_status_5";
+        public static final String COLUMN_REPEAT_TYPE_1="tracker_repeat_type_1";
+        public static final String COLUMN_REPEAT_TYPE_2="tracker_repeat_type_2";
+        public static final String COLUMN_REPEAT_TYPE_3="tracker_repeat_type_3";
+        public static final String COLUMN_REPEAT_TYPE_4="tracker_repeat_type_4";
+        public static final String COLUMN_REPEAT_TYPE_5="tracker_repeat_type_5";
+        public static final String COLUMN_REPEAT_RULE_1="tracker_repeat_rule_1";
+        public static final String COLUMN_REPEAT_RULE_2="tracker_repeat_rule_2";
+        public static final String COLUMN_REPEAT_RULE_3="tracker_repeat_rule_3";
+        public static final String COLUMN_REPEAT_RULE_4="tracker_repeat_rule_4";
+        public static final String COLUMN_REPEAT_RULE_5="tracker_repeat_rule_5";
+        public static final String COLUMN_REPEAT_DATE_1="tracker_repeat_date_1";
+        public static final String COLUMN_REPEAT_DATE_2="tracker_repeat_date_2";
+        public static final String COLUMN_REPEAT_DATE_3="tracker_repeat_date_3";
+        public static final String COLUMN_REPEAT_DATE_4="tracker_repeat_date_4";
+        public static final String COLUMN_REPEAT_DATE_5="tracker_repeat_date_5";
+        public static final String COLUMN_REF_OBJECTIVE__ID_1="tracker_ref_objective_id_1";
+        public static final String COLUMN_REF_OBJECTIVE__ID_2="tracker_ref_objective_id_2";
+        public static final String COLUMN_REF_OBJECTIVE__ID_3="tracker_ref_objective_id_3";
+        public static final String COLUMN_REF_OBJECTIVE__ID_4="tracker_ref_objective_id_4";
+        public static final String COLUMN_REF_OBJECTIVE__ID_5="tracker_ref_objective_id_5";
+        public static final String COLUMN_REF_PURPOSE__ID_1="tracker_ref_purpose_id_1";
+        public static final String COLUMN_REF_PURPOSE__ID_2="tracker_ref_purpose_id_2";
+        public static final String COLUMN_REF_PURPOSE__ID_3="tracker_ref_purpose_id_3";
+        public static final String COLUMN_REF_PURPOSE__ID_4="tracker_ref_purpose_id_4";
+        public static final String COLUMN_REF_PURPOSE__ID_5="tracker_ref_purpose_id_5";
     }
 
 
@@ -102,6 +151,15 @@ public class DBStructure {
     public static abstract class ElementsEntry implements BaseColumns{
         public static final String TABLE_NAME="elements_entry";
         public static final String COLUMN_TITLE="elements_title";
+    }
+
+    // date entry : id, date
+    public static abstract class DateEntry implements BaseColumns{
+        public static final String TABLE_NAME="date_entry";
+        public static final String COLUMN_TITLE="date_title";
+        public static final String COLUMN_CONTENT_TYPE="date_content_type";
+        public static final String COLUMN_REF_OBJECTIVE__ID="date_ref_objective_id";
+        public static final String COLUMN_REF_PURPOSE_ID="date_ref_purpose_id";
     }
 
 
@@ -389,16 +447,16 @@ public class DBStructure {
 
 
     // Topic : Purpose, Objective, Schedule(content), Task(content), Tracker(content ??)
-    public static abstract class TopicEntry implements BaseColumns {
-        public static final String TABLE_NAME = "topic_entry";
-        public static final String COLUMN_TYPE = "topic_type";
-    }
-
-    public static abstract class TopicTypeEntry implements BaseColumns {
-        public static final String TABLE_NAME = "topic_name";
-        public static final String COLUMN_NAME = "topic_type_name";
-        public static final String COLUMN_REF_TOPIC__ID = "topic_type_ref_topic_id";
-    }
+//    public static abstract class TopicEntry implements BaseColumns {
+//        public static final String TABLE_NAME = "topic_entry";
+//        public static final String COLUMN_TYPE = "topic_type";
+//    }
+//
+//    public static abstract class TopicTypeEntry implements BaseColumns {
+//        public static final String TABLE_NAME = "topic_name";
+//        public static final String COLUMN_NAME = "topic_type_name";
+//        public static final String COLUMN_REF_TOPIC__ID = "topic_type_ref_topic_id";
+//    }
 
 
 

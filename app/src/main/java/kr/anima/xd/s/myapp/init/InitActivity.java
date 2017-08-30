@@ -29,12 +29,12 @@ public class InitActivity extends AppCompatActivity implements InitTask.InitCall
     protected void onResume() {
         super.onResume();
         // TODO :: 샘플로드
-//        initHandler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                new InitTask(InitActivity.this, InitActivity.this).execute();
-//            }
-//        }, initTime);
+        initHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                new InitTask(InitActivity.this, InitActivity.this).execute();
+            }
+        }, initTime);
     }
 
     @Override
