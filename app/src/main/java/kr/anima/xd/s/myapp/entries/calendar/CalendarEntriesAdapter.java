@@ -46,7 +46,7 @@ public class CalendarEntriesAdapter extends RecyclerView.Adapter<CalendarEntries
 
     @Override
     public CalendarEntriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(mContext).inflate(R.layout.rv_calendar_entries_item, parent, false);
+        View view= LayoutInflater.from(mContext).inflate(R.layout.rv_schedule_entries_item, parent, false);
         loadDataByDate(selectDate);
 
         ViewHolder holder=new ViewHolder(view);
@@ -104,7 +104,7 @@ public class CalendarEntriesAdapter extends RecyclerView.Adapter<CalendarEntries
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         TextView tvHeader, tvDate, tvDay, tvTime, tvTitle, tvSummary;
-        ImageView ivWeather, ivMood, ivBookmark, ivAttachment;
+        ImageView ivElement;
 
 
         public ViewHolder(View itemView) {
@@ -117,10 +117,7 @@ public class CalendarEntriesAdapter extends RecyclerView.Adapter<CalendarEntries
             tvTitle=itemView.findViewById(R.id.tvTitle);
             tvSummary=itemView.findViewById(R.id.tvSummary);
 
-            ivWeather=itemView.findViewById(R.id.ivWeather);
-            ivMood=itemView.findViewById(R.id.ivMood);
-            ivBookmark=itemView.findViewById(R.id.ivBookmark);
-            ivAttachment=itemView.findViewById(R.id.ivAttachment);
+            ivElement=itemView.findViewById(R.id.ivElement);
 
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);

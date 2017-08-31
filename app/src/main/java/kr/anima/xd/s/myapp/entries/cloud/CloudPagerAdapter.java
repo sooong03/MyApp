@@ -14,7 +14,7 @@ import kr.anima.xd.s.myapp.R;
 
 public class CloudPagerAdapter extends PagerAdapter {
 
-    static final int NUM_PAGE=2;
+    static final int NUM_PAGE=1;
     private Context mContext;
 
     public CloudPagerAdapter(Context mContext) {
@@ -29,9 +29,9 @@ public class CloudPagerAdapter extends PagerAdapter {
             case 0:
                 view= LayoutInflater.from(mContext).inflate(R.layout.fragment_cloud_list, container, false);
                 break;
-            case 1:
-                view=LayoutInflater.from(mContext).inflate(R.layout.fragment_my_cloud, container, false);
-                break;
+//            case 1:
+//                view=LayoutInflater.from(mContext).inflate(R.layout.fragment_my_cloud, container, false);
+//                break;
         }
         container.addView(view);
         return view;

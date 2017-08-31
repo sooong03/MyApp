@@ -4,6 +4,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import kr.anima.xd.s.myapp.R;
+import kr.anima.xd.s.myapp.db.DBManager;
 
 public class PurposeActivity extends AppCompatActivity implements View.OnClickListener, DatePicker.OnDateChangedListener{
 
@@ -19,6 +21,11 @@ public class PurposeActivity extends AppCompatActivity implements View.OnClickLi
     DatePicker startDatePicker, endDatePicker;
     Spinner spiRepeatRule, spiRepeatDate;
     TextView tvOk, tvCancel;
+
+//    insert item
+    // id, title, content type(purpose, objective, schedule, task), start date, end date,
+    // repeat type(true, false), repeat rule, repeat date, tracker type(true, false), status,
+    // element A~S(NotNull), ref_objective_id, ref_purpose_id
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +63,16 @@ public class PurposeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initSpinner(){
-
+        ArrayAdapter arrayAdapter=ArrayAdapter.createFromResource(this, R.array.days_full_name, android.R.layout.simple_spinner_dropdown_item);
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_imageview);
+        spiRepeatDate.setAdapter(arrayAdapter);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.tvOk: // 저장
+            case R.id.tvOk: // 저장 : Save SQLite
+                saveData();
                 break;
             case R.id.tvCancel: // 입력 취소
                 finish();
@@ -73,4 +83,14 @@ public class PurposeActivity extends AppCompatActivity implements View.OnClickLi
     public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfWeek) {
 
     }
+
+    private boolean saveData(){
+        DBManager dbManager=new DBManager(this);
+        dbManager.openDB();
+
+        dbManager.closeDB();
+
+        return false;
+    }
+
 }

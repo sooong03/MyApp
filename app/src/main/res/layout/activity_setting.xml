@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="kr.anima.xd.s.myapp.setting.SettingActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvAdminEmail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_36dp"
+        android:text="@string/set_admin"
+        android:textStyle="bold"
+        android:textSize="@dimen/typo_caption"
+        android:gravity="center_vertical"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="@dimen/_16dp"
+        android:padding="@dimen/_8dp"
+        android:clickable="true"/>
+
+
+</LinearLayout>

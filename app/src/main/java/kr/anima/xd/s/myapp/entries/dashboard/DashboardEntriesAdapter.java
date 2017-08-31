@@ -121,11 +121,6 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
 
             ((ScheduleViewHolder)holder).getIvElement().setImageResource(ItemInfoHelper.getElementResourceId(entriesList.get(position).getElementId()));
 
-            if (entriesList.get(position).hasAttachment()) {
-                ((ScheduleViewHolder)holder).getIvAttachment().setVisibility(View.VISIBLE);
-            } else {
-                ((ScheduleViewHolder)holder).getIvAttachment().setVisibility(View.GONE);
-            }
 
 
         }else if (holder.itemView==taskViewHolder.itemView){
@@ -217,7 +212,7 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
     protected static class ScheduleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         TextView tvTime, tvAmPm, tvParent, tvTitle, tvSummary;
-        ImageView ivElement, ivAttachment;
+        ImageView ivElement;
         public static final int TYPE_SCHEDULE=0;
 
         public ScheduleViewHolder(View itemView) {
@@ -230,7 +225,6 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
             tvSummary=itemView.findViewById(R.id.tvSummary);
 
             ivElement=itemView.findViewById(R.id.ivElement);
-            ivAttachment=itemView.findViewById(R.id.ivAttachment);
 
             itemView.setOnClickListener(this);
         }
@@ -281,14 +275,6 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
 
         public void setIvElement(ImageView ivElement) {
             this.ivElement = ivElement;
-        }
-
-        public ImageView getIvAttachment() {
-            return ivAttachment;
-        }
-
-        public void setIvAttachment(ImageView ivAttachment) {
-            this.ivAttachment = ivAttachment;
         }
 
         @Override

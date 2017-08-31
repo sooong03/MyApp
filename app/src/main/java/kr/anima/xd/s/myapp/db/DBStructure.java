@@ -34,6 +34,13 @@ public class DBStructure {
     // tracker entry : id, title, status, repeatRule, repeatData, (tracker type ??) ref_purpose_id
     // elements entry : id, element name
 
+    public static final String SAMPLE_DATA_LOAD_URL ="http://sooong03.dothome.co.kr/myapp/sampledata/loadDB.php";
+
+    public static final String CLOUD_DATA_LOAD_URL="http://sooong03.dothome.co.kr/myapp/cloud/loadDB.php";
+    public static final String CLOUD_DATA_INSERT_URL="http://sooong03.dothome.co.kr/myapp/cloud/insertDB.php";
+
+    public static final String COMMENT_DATA_LOAD_URL="http://sooong03.dothome.co.kr/myapp/comment/loadDB.php";
+    public static final String COMMENT_DATA_INSERT_URL="http://sooong03.dothome.co.kr/myapp/comment/insertDB.php";
 
     // purpose entry : id, purpose title, status, timeStamp, finalTimeStamp, ref_element_id (1~9)
     public static abstract class PurposeEntry implements BaseColumns{

@@ -16,7 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kr.anima.xd.s.myapp.R;
+import kr.anima.xd.s.myapp.entries.item.EntriesItem;
 import kr.anima.xd.s.myapp.main.PurposeActivity;
 import kr.anima.xd.s.myapp.shared.TimeTools;
 
@@ -28,8 +32,10 @@ public class BoardListFragment extends Fragment implements View.OnClickListener{
 
     private Context mContext;
     private Calendar calendar;
-    public final int REQUST_CODE_ADD_CONTENT=0;
+    public final int REQUEST_CODE_ADD_CONTENT =0;
     private TimeTools timeTools;
+
+    private List<EntriesItem> entriesItems=new ArrayList<>();
 
     LinearLayout layout_today;
     TextView tvDate, tvDateMonth;
@@ -76,6 +82,11 @@ public class BoardListFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
+    private void loadDashboard(){
+
+    }
+
+
     private void setCurrentTime(boolean updateCurrentTime) {
         if (updateCurrentTime) {
             calendar.setTimeInMillis(System.currentTimeMillis());
@@ -103,7 +114,7 @@ public class BoardListFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.fab: // 새로운 항목 추가
                 Intent intent=new Intent(mContext, PurposeActivity.class);
-                startActivityForResult(intent, REQUST_CODE_ADD_CONTENT);
+                startActivityForResult(intent, REQUEST_CODE_ADD_CONTENT);
                 break;
         }
     }
@@ -111,6 +122,6 @@ public class BoardListFragment extends Fragment implements View.OnClickListener{
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         super.startActivityForResult(intent, requestCode);
-
+        // 새로운 항목 추가, 취소
     }
 }

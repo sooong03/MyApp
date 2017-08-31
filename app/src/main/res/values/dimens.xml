@@ -20,6 +20,7 @@
     <dimen name="typo_headline_sub">17sp</dimen>
     <dimen name="typo_body">15sp</dimen>
     <dimen name="typo_caption">15sp</dimen>
+    <dimen name="typo_caption_sub">12sp</dimen>
 
 
 </resources>

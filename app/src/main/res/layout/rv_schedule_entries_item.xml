@@ -77,15 +77,6 @@
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/ivAttachment"
-                        android:src="@drawable/ic_attach"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_height="24dp"
-                        android:layout_width="24dp"
-                        android:padding="2dp" />
-
                 </RelativeLayout>
 
                 <LinearLayout
