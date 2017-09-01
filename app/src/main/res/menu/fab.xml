@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fab_Purpose"
+        android:title="@string/purpose_title"
+        android:icon="@drawable/ic_arrow_next"/>
+    <item
+        android:id="@+id/fab_Schedule"
+        android:title="@string/set_device_calendar"
+        android:icon="@drawable/ic_schedule"
+        android:iconTint="@color/myColorGreyWhite"
+        android:iconTintMode="multiply"/>
+    <item
+        android:id="@+id/fab_Tracker"
+        android:title="@string/set_admin"
+        android:icon="@drawable/ic_sel_tracker"/>
+
+</menu>
