@@ -6,11 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
+import kr.anima.xd.s.myapp.R;
+
 import static kr.anima.xd.s.myapp.db.DBStructure.PurposeEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.ObjectiveEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.ScheduleEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.TaskEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.TrackerEntry;
+import static kr.anima.xd.s.myapp.db.DBStructure.ElementsEntry;
 import static kr.anima.xd.s.myapp.db.DBStructure.DateEntry;
 
 /**
@@ -43,6 +46,19 @@ public class DBManager {
 
     public void closeDB(){
         opener.close();
+    }
+
+    // Elements
+
+    public long insertElement(String element){
+        return db.insert(ElementsEntry.TABLE_NAME, null, this.createElementContentValues(element));
+    }
+
+    public ContentValues createElementContentValues(String element){
+        ContentValues values=new ContentValues();
+        values.put(ElementsEntry.COLUMN_TITLE, element);
+
+        return values;
     }
 
 
@@ -202,6 +218,12 @@ public class DBManager {
         }
         return c;
     }
+
+
+//    public Cursor selectScheduleByDate(long date){
+////        Cursor c=db.query("select * from "+ScheduleEntry.TABLE_NAME
+////                    + " where " + )
+//    }
 
 
 
@@ -449,7 +471,6 @@ public class DBManager {
 
         return values;
     }
-
 
 
 }

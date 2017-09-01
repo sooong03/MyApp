@@ -57,6 +57,18 @@
         <item>foggy</item>
     </array>
 
+    <array name="element_kor_list">
+        <item>감정</item>
+        <item>건강</item>
+        <item>관계</item>
+        <item>교육</item>
+        <item>사업</item>
+        <item>외면</item>
+        <item>정신</item>
+        <item>재정</item>
+        <item>환경</item>
+    </array>
+
     <array name="language_list">
         <item>System</item>
         <item>English(100%)</item>
@@ -68,5 +80,7 @@
         <item>Français(99%)</item>
         <item>Español(80%)</item>
     </array>
+
+
 
 </resources>

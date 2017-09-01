@@ -29,7 +29,6 @@ import kr.anima.xd.s.myapp.shared.EditMode;
 
 public class DashboardEntriesAdapter extends RecyclerView.Adapter implements EditMode{
 
-    // 대시보드에 보여줄 내용 로드
 
     private Context mContext;
     private Date selectDate;
@@ -37,7 +36,6 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
     private ArrayList<EntriesEntry> entriesList;
     private DateFormat dateFormat;
 
-    private DBManager dbManager;
     private boolean isEditMode=false;
 
     private final int NO_ITEM=0;
@@ -52,7 +50,6 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
     public DashboardEntriesAdapter(Context mContext, Date selectDate) {
         this.mContext = mContext;
         this.selectDate = selectDate;
-        loadDataByDate(selectDate); // 날짜에 맞는 데이타 로드
         entriesList.add(new EntriesEntry(0, selectDate, "test", "test", 0, false, EntriesEntry.TYPE_SCHEDULE));
     }
 
@@ -165,38 +162,7 @@ public class DashboardEntriesAdapter extends RecyclerView.Adapter implements Edi
     }
 
 
-    private void loadDataByDate(Date date){
-        dbManager=new DBManager(mContext);
-        dbManager.openDB();
-        Cursor cursor=null;
 
-        // 스케쥴
-        cursor=dbManager.selectScheduleByDate(date.getTime());
-        while (cursor!=null){
-            int id=cursor.getInt(cursor.getColumnIndex(DBStructure.ScheduleEntry._ID));
-            String title=cursor.getString(cursor.getColumnIndex(DBStructure.ScheduleEntry.COLUMN_TITLE));
-            int[] elements=new int[9];
-            for(int j=0; j<elements.length; j++){
-                int elementId=cursor.getInt(cursor.getColumnIndex(DBStructure.ScheduleEntry.COLUMN_ELEMENT_APPEARANCE+j));
-                elements[j]=elementId;
-            }
-            entriesList.add(new EntriesEntry(id, date.getTime(), title, null, elements, EntriesEntry.TYPE_SCHEDULE));
-            cursor.moveToNext();
-            cursor.close();
-        }
-
-//        cursor=dbManager.selectTaskByDate(date.getTime());
-//        while (cursor!=null){
-//            String str=cursor.getString(cursor.getColumnIndex(DBStructure.TaskEntry.COLUMN_TITLE));
-//
-//
-//        }
-//        String title=cursor.getString(cursor.getColumnIndex(DBStructure.ScheduleEntry.COLUMN_TITLE));
-
-//        cursor.close();
-        dbManager.closeDB();
-
-    }
 
     @Override
     public boolean isEditMode() {

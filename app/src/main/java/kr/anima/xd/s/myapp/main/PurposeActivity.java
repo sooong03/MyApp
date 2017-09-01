@@ -39,10 +39,9 @@ public class PurposeActivity extends AppCompatActivity implements View.OnClickLi
         startDatePicker= (DatePicker) findViewById(R.id.dpStart);
         endDatePicker= (DatePicker) findViewById(R.id.dpEnd);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startDatePicker.setOnDateChangedListener(this);
-            endDatePicker.setOnDateChangedListener(this);
-        }
+        startDatePicker.setOnClickListener(this);
+//            startDatePicker.setOnDateChangedListener(this);
+//            endDatePicker.setOnDateChangedListener(this);
 
 
         spiRepeatRule= (Spinner) findViewById(R.id.spiRrule);
@@ -76,6 +75,14 @@ public class PurposeActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.tvCancel: // 입력 취소
                 finish();
+            case R.id.dpStart:
+                // 시작 날짜 선택 wheel
+                // 하루종일 선택 시 시간 비활성
+                break;
+            case R.id.dpEnd:
+                // 종료 날짜 선택 wheel
+                // 하루종일 선택 시 시간 비활성
+                break;
         }
     }
 

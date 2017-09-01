@@ -411,27 +411,15 @@ public class DBOpener extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-
-//        db.execSQL(SQL_CREATE_TOPIC_ENTRIES);
-//        db.execSQL(SQL_CREATE_TOPIC_TYPE_ENTRIES);
-
-//        db.execSQL(SQL_CREATE_USER_ENTRIES);
+        db.execSQL(SQL_CREATE_ELEMENTS_ENTRIES);
+        db.execSQL(SQL_CREATE_DATE_ENTRIES);
 
         db.execSQL(SQL_CREATE_PURPOSE_ENTRIES);
-//        db.execSQL(SQL_CREATE_DATE_ENTRIES);
-        db.execSQL(SQL_CREATE_ELEMENTS_ENTRIES);
-//        db.execSQL(SQL_CREATE_STATUS_ENTRIES);
-
         db.execSQL(SQL_CREATE_OBJECTIVE_ENTRIES);
-//        db.execSQL(SQL_CREATE_STATUS_TYPE_ENTRIES);
-//        db.execSQL(SQL_CREATE_ELEMENT_ENTRIES);
-//
-//        db.execSQL(SQL_CREATE_CONTENT_ENTRIES);
+
         db.execSQL(SQL_CREATE_SCHEDULE_ENTRIES);
         db.execSQL(SQL_CREATE_TASK_ENTRIES);
         db.execSQL(SQL_CREATE_TRACKER_ENTRIES);
-
-        db.execSQL(SQL_CREATE_DATE_ENTRIES);
 
     }
 
